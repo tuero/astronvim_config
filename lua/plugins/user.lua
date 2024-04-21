@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+--if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
@@ -23,24 +23,45 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣄⠀⠀⢀            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣷⣴⣿⡄⠀⠀⠀⠀⠀⢀     ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠰⣶⣾⣿⣿⣿⣿⣿⡇⠀⢠⣷⣤⣶⣿⡇⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣀⣿⣿⣿⣿⣿⣧⣀   ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⣷⣦⣀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃   ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢲⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁     ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠚⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠂⠀⠀   ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⢻⣿⣿⡿⠛⠉⡇⠀         ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠋⠁⠀⠀⠀⠸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⡀⠀⠀⠀⠀⠀⠀⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
       }
       return opts
     end,
   },
+  {
+    "tuero/onedark.nvim",
+    as = "onedark",
+    branch = "inactive_bg",
+    config = function()
+        require('onedark').setup {
+            style = 'warmer',
+            colors = {
+                turquoise = "#1ec4ae",
+                bg0 = "#202023",
+            },
+            highlights = {
+                ["@lsp.type.variable"] = {fg = '$fg'},
+                ["@lsp.type.property"] = {fg = '$cyan'},
+                ["@lsp.type.macro"] = {fg = '$turquoise', fmt = 'bold'},
+                ["@lsp.type.typeParameter"] = {fg = '$yellow', fmt = 'bold,italic'},
+            }
+        }
+        require('onedark').load()
+    end,
+},
 
   -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false },
+--   { "max397574/better-escape.nvim", enabled = false },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
@@ -82,4 +103,28 @@ return {
       )
     end,
   },
+  {
+    "lervag/vimtex", 
+    lazy = false,
+    init = function()
+        vim.g.vimtex_mappings_prefix = "<leader>L"
+    end
+    },
+    "nvie/vim-flake8",
+    {
+        "echasnovski/mini.move", 
+        lazy = false,
+        config = function()
+            require('mini.move').setup()
+        end,
+    },
+    {
+        "rktjmp/lush.nvim", 
+        lazy = false,
+    },
+    {
+        "mcchrish/zenbones.nvim", 
+        lazy = false,
+        requires = "rktjmp/lush.nvim"
+    },
 }

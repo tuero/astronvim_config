@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -30,13 +30,32 @@ return {
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
-        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+        signcolumn = "yes", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+        -- Tab spaces
+        tabstop = 4,
+        softtabstop = 4,
+        shiftwidth = 4,
+        expandtab = true, -- convert tab to spaces
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        vimtex_quickfix_ignore_filters = {
+            'Overfull',
+            'Redefining Unicode character',
+            'Underfull'
+        },
+        vimtex_compiler_latexmk = { 
+            options = { 
+                '-shell-escape',
+                '-verbose',
+                '-file-line-error',
+                '-interaction=nonstopmode',
+                '-synctex=1'
+            } 
+        },
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -64,6 +83,18 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<M-o>"] = {
+            function()
+              if vim.bo.filetype == "cpp" or vim.bo.filetype == "cxx" or vim.bo.filetype == "c" then
+                vim.cmd("ClangdSwitchSourceHeader")
+              end
+            end,
+            desc = "Switch source header",
+          },
+        ["<leader>pf"] = {":r ~/.vbuf<CR>", desc = "paste from file"},
+      },
+      v = {
+        ["<leader>cf"] = {":w! ~/.vbuf<CR>", desc = "copy to file"}
       },
       t = {
         -- setting a mapping to false will disable it
