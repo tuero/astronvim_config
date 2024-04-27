@@ -12,8 +12,14 @@ return {
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
-  },
+    config = function()
+        cfg_lsp_signature = {
+            hint_prefix="* ",
+            toggle_key="<M-x>",
+        }
+        require("lsp_signature").setup(cfg_lsp_signature)
+    end,
+},
 
   -- == Examples of Overriding Plugins ==
 
