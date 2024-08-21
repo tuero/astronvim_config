@@ -16,3 +16,19 @@ vim.filetype.add {
     ["~/%.config/foo/.*"] = "fooscript",
   },
 }
+
+
+if os.getenv "SSH_TTY" then
+    vim.notify "SSH_TTY is set, enabling OSC 52 clipboard support"
+    vim.g.clipboard = {
+      name = "OSC 52",
+      copy = {
+        ["+"] = require("vim.ui.clipboard.osc52").copy "+",
+        ["*"] = require("vim.ui.clipboard.osc52").copy "*",
+      },
+      paste = {
+        ["+"] = require("vim.ui.clipboard.osc52").paste "+",
+        ["*"] = require("vim.ui.clipboard.osc52").paste "*",
+      },
+    }
+  end
