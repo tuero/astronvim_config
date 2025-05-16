@@ -115,7 +115,11 @@ return {
   {
     "mcchrish/zenbones.nvim",
     lazy = false,
-    requires = "rktjmp/lush.nvim",
+    dependencies = "rktjmp/lush.nvim",
+  },
+  { 
+    "miikanissi/modus-themes.nvim", 
+    priority = 1000 
   },
   {
     "matze/vim-move",

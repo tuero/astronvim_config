@@ -114,7 +114,11 @@ return {
             if vim.api.nvim_get_var "colors_name" == "onedark" then
               vim.api.nvim_command "colorscheme default"
               vim.api.nvim_command "set background=light"
-              vim.api.nvim_command "colorscheme zenbones"
+            --   vim.api.nvim_command "colorscheme zenbones"
+              require("modus-themes").setup({
+                dim_inactive = true, -- "non-current" windows are dimmed
+              })
+              vim.api.nvim_command "colorscheme modus"
             else
               vim.api.nvim_command "colorscheme default"
               vim.api.nvim_command "set background=dark"
