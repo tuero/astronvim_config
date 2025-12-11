@@ -6,6 +6,7 @@ return {
       filesystem = {
         follow_current_file = { enabled = false },
       },
+      sort_case_insensitive = true,
     },
   },
 }
