@@ -154,4 +154,14 @@ return {
       }
     end,
   },
+  {
+    "mason.nvim",
+    opts = {
+      -- add AstroNvim Mason registry
+      registries = { 
+        "github:AstroNvim/mason-registry",
+        "github:Crashdummyy/mason-registry"
+      },
+    },
+  },
 }
