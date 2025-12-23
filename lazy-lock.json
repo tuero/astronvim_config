@@ -48,6 +48,7 @@
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
   "quarto-nvim": { "branch": "main", "commit": "0e9491509b38efbd83d3f41dbfacc7fc4bd40191" },
   "resession.nvim": { "branch": "master", "commit": "cc819b0489938d03e4f3532a583354f0287c015b" },
+  "roslyn.nvim": { "branch": "main", "commit": "4deb46ce892c279d3183661342c93aa2ec9716c6" },
   "rustaceanvim": { "branch": "master", "commit": "88575b98bb9937fb9983ddec5e532b67e75ce677" },
   "smart-splits.nvim": { "branch": "master", "commit": "ddb23c1a1cf1507bda487cda7f6e4690965ef9f5" },
   "smartyank.nvim": { "branch": "master", "commit": "c4e53e0d9316ca790a6f5d78aad73206a763873b" },
