@@ -25,18 +25,18 @@ return {
       underline = true,
     },
     -- passed to `vim.filetype.add`
-    -- filetypes = {
-    --   -- see `:h vim.filetype.add` for usage
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     [".foorc"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     [".*/etc/foo/.*"] = "fooscript",
-    --   },
-    -- },
+    filetypes = {
+      -- see `:h vim.filetype.add` for usage
+      extension = {
+        foo = "fooscript",
+      },
+      filename = {
+        [".foorc"] = "fooscript",
+      },
+      pattern = {
+        [".*/etc/foo/.*"] = "fooscript",
+      },
+    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
@@ -103,7 +103,7 @@ return {
         ["<M-o>"] = {
           function()
             if vim.bo.filetype == "cpp" or vim.bo.filetype == "cxx" or vim.bo.filetype == "c" then
-              vim.cmd "ClangdSwitchSourceHeader"
+              vim.cmd "LspClangdSwitchSourceHeader"
             end
           end,
           desc = "Switch source header",

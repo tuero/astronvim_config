@@ -71,10 +71,12 @@ return {
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
-      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
       -- add more custom luasnip configuration such as filetype extend or custom snippets
       local luasnip = require "luasnip"
       luasnip.filetype_extend("javascript", { "javascriptreact" })
+
+      -- include the default astronvim config that calls the setup call
+      require "astronvim.plugins.configs.luasnip"(plugin, opts)
     end,
   },
 
@@ -154,20 +156,4 @@ return {
       }
     end,
   },
-  {
-    "mason.nvim",
-    opts = {
-      -- add AstroNvim Mason registry
-      registries = { 
-        "github:AstroNvim/mason-registry",
-        "github:Crashdummyy/mason-registry"
-      },
-    },
-  },
-    "seblyng/roslyn.nvim",
-    ---@module 'roslyn.config'
-    ---@type RoslynNvimConfig
-    opts = {
-        -- your configuration comes here; leave empty for default settings
-    },
 }
