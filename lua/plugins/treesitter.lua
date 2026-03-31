@@ -24,7 +24,7 @@ return {
         "cmake",
         "gitcommit",
         "git_rebase",
-        -- "latex",
+        "latex",
         "make",
         "json",
         "llvm",
